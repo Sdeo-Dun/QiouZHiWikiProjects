@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="author" content="Du Sdeo">
+    <meta name="keywords" content="分享,代码,手绘,原稿,主稿,Share,Code,Hand-drawn,Manuscript,Master manuscript,pixels">
+    <meta name="description" content="代码,脚本,手绘,像素,Code,scripts,drawings,pixels">
+    <meta name="Copyright" content="本页版权归Dunsdeo所有© All Rights Reserved © 皖ICP备2024053600号-1">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <title>墨雨</title>
+    <link rel="stylesheet" href="../lib/themes/vue.css" />
+    <link rel="stylesheet" href="../lib/index/style.css" />
+    <link rel="stylesheet" href="../lib/index/font-awesome.min.css" />
+</head>
+<body>
+<!--<span id='time'><script>setInterval("document.getElementById('time').innerHTML=new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay());",1000);</script></span>-->
+<nav>
+    <a id="time">
+        <script>
+            setInterval("document.getElementById('time').innerHTML=new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay());",1000);
+        </script>
+    </a>
+    <a href="#">百度</a>
+    <a href="#/快速入门">快速入门</a>
+</nav>
+<div id="app">加载中... ...</div>
+<!--<script>-->
+<!--    // 提示-->
+<!--    alert('请自觉遵守上网规则！本网站有权监督用户上网规范！');-->
+<!--</script>-->
+<script>
+    window.$docsify = {
+        logo : "https://jingping-ye.github.io/docsify-docs-zh/_media/icon.svg",
+        count:{ countable:true, fontsize:'0.9em', color:'rgb(90,90,90)', language:'chinese' },
+        // IMPORTANT
+        // loadNavbar: true,
+        loadNavbar : false,
+        // path of your changelog, it can be remote as well
+        changelog : 'CHANGELOG.md',
+        //.
+        // notFoundPage: {
+        //     "/": "_404.md",
+        //     "/cn": "cn/_404.md",
+        // },
+        //.
+        loadSidebar: true,
+        subMaxLevel: 2,
+        coverpage: true,
+        onlyCover: true,
+        executeScript: true,
+        externalLinkTarget: "_self",
+        // 文本高亮
+        // 'flexible-alerts': {
+        //     style: 'flat',
+        //     note: {
+        //         label: "信息"
+        //     },
+        //     tip: {
+        //         label: "提示"
+        //     },
+        //     warning: {
+        //         label: "注意"
+        //     },
+        //     attention: {
+        //         label: "切记"
+        //     }
+        // },
+        //    YYYY-年 yy-短年 MM-月 DD-日 HH-时 mm-分 ss-秒 fff-微秒
+        plugins: [
+            function(hook, vm) {
+                hook.beforeEach(function(html) {
+                    let url = '#' +
+                        vm.route.file;
+                    // let editHtml = '[📝 EDIT DOCUMENT](' + url + ')\n';
+                    let editHtmlPlus = '最后更新于';
+                    let timePlus = '2024-11-17';
+                    // let timePlus = new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay());
+                    return (
+                        // editHtml +
+                        html +
+                        '\n----\n' +
+                        editHtmlPlus +
+                        timePlus
+                    );
+                });
+            },
+            function (hook) {
+                let footer = [
+                    "<hr/>",
+                    "<footer style='text-align: center;text-align-all: center'>",
+                    '<span><a href="mailto:inkrabbit@foxmail.com">本文网站解释权归 Dunsdeo © 所有</a> &copy;2024.</span>',
+                    "<br>" ,
+                    '<span> All Rights Reserved © <a href="https://beian.miit.gov.cn/#/Integrated/recordQuery?type=皖ICP备2024053600号-1" target="_blank"> 皖ICP备2024053600号-1 </a>.</span>',
+                    "</footer>",
+                ].join("");
+
+                hook.afterEach(function (html) {
+                    return html + footer;
+                });
+            },
+        ],
+    };
+</script>
+<script src="../lib/docsify.js">
+</script>
+<script src="../lib/search.js">
+</script>
+<script src="../lib/prism-bash.min.js">
+</script>
+<script src="../lib/prism-markdown.min.js">
+</script>
+<script src="../lib/prism-nginx.min.js">
+</script>
+<script src="../lib/plugins/countable.js">
+</script>
+<script src="../lib/npm/docsify-copy-code">
+</script>
+<script src="../lib/plugins/emoji.min.js">
+</script>
+<script src="../lib/index/index.js">
+</script>
+<script>
+    if (typeof navigator.serviceWorker !== "undefined") {
+        navigator.serviceWorker.register("sw.js");
+    }
+</script>
+</body>
+
+</html>
+
